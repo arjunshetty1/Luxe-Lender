@@ -12,7 +12,7 @@ const Hero = () => {
               </h1>
 
               <p className="mb-8 leading-relaxed text-gray-500 md:mb-12 lg:w-4/5 xl:text-lg">
-              Indulge yourself with the finest rentals for every luxury occasion. At The Luxe Lender, you can rent coveted cars,designer handbags, watches, jewelry, eyewear, and more without the commitment.
+              Indulge yourself with the finest rentals for every luxury occasion. At The Luxe Lender, you can rent coveted designer handbags, watches, jewelry, eyewear, and more without the commitment.
               
               </p>
 
@@ -28,12 +28,12 @@ const Hero = () => {
               </form>
             </div>
 
-            <div className="h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:h-auto xl:w-5/12">
+            <div className="h-48 mt-3 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:h-auto xl:w-5/12">
               <img
                 src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 loading="lazy"
                 alt="Photo by Fakurian Design"
-                className="h-full w-full object-cover object-center"
+                className="h-full  w-full object-cover object-center"
               />
             </div>
           </section>

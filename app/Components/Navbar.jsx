@@ -21,7 +21,7 @@ const Navbar = () => {
               >
                 <path d="M96 0V47L48 94H0V47L48 0H96Z" />
               </svg>
-              Flowrift
+              Luxe Lender
             </a>
 
             <nav className="hidden gap-12 lg:flex">
