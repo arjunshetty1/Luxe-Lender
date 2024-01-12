@@ -1,6 +1,31 @@
 import Wrapper from "./Wrapper";
+import { useEffect, useState } from "react";
+import { product } from "../Services/apiProducts";
 
 const FilterProducts = () => {
+  const [ListBrands, setListBrands] = useState(null);
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await product();
+
+      setListBrands(response);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Category filter logic
+  const brands = new Set();
+  ListBrands?.products?.forEach((item) => {
+    brands.add(item.categories);
+  });
+  const brandsArray = [...brands];
+
   return (
     <>
       <Wrapper>
@@ -16,11 +41,9 @@ const FilterProducts = () => {
             </select>
 
             <select className="select select-bordered w-full max-w-xs">
-              <option>Handbags</option>
-              <option>Jewelry</option>
-              <option>Watches</option>
-              <option>Eyewear</option>
-              <option>Others</option>
+              {brandsArray?.map((item, i) => {
+                return <option key={i + 2}>{item}</option>;
+              })}
             </select>
           </div>
         </div>

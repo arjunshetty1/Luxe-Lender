@@ -11,6 +11,7 @@ const Page = () => {
       <Wrapper>
         <Hero />
         <FilterProducts />
+
         <ProductsPage />
       </Wrapper>
     </>
