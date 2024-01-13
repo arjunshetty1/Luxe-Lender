@@ -1,6 +1,8 @@
+"use client";
 import Wrapper from "./Wrapper";
 import { useEffect, useState } from "react";
 import { product } from "../Services/apiProducts";
+import { fetchCategoryFilter } from "./ProductsPage";
 
 const FilterProducts = () => {
   const [ListBrands, setListBrands] = useState(null);
@@ -13,7 +15,6 @@ const FilterProducts = () => {
       const response = await product();
 
       setListBrands(response);
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -25,6 +26,8 @@ const FilterProducts = () => {
     brands.add(item.categories);
   });
   const brandsArray = [...brands];
+
+ 
 
   return (
     <>
@@ -47,6 +50,7 @@ const FilterProducts = () => {
             </select>
           </div>
         </div>
+        <button onClick={() => fetchCategoryFilter("Watches")}>Click Me </button>
       </Wrapper>
     </>
   );

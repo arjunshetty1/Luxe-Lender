@@ -4,10 +4,14 @@ export const product = async () => {
   const document = gql`
     query MyQuery {
       products {
-        price
         id
+        price
         productName
         categories
+        image {
+          id
+          url
+        }
       }
     }
   `;
