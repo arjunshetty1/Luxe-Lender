@@ -3,7 +3,7 @@ import DatePickerUi from "./DatePickerUi";
 const Card = ({ item }) => {
   return (
     <>
-      <div className="card w-72  bg-base-100 shadow-xl">
+      <div className="card w-72  bg-base-100 shadow-xl transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:text-black  hover:bg-slate-50 hover:outline hover:outline-3 hover:outline-offset-2 hover:duration-200">
         <figure>
           <img
             src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
@@ -22,20 +22,24 @@ const Card = ({ item }) => {
               Rent Now
             </button>
 
-            <dialog key={item.id} id={item.id} className="modal">
+            <dialog key={item.id} id={item.id} className="modal text-white">
               <div className="modal-box md:min-w-[1200px] md:min-h-[460px] p-10">
                 <div className="flex gap-14 mt-12 ">
                   <div className="left w-1/2">
                     <img
-                    className="rounded-lg "
+                      className="rounded-lg "
                       src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
                       alt=""
                     />
                   </div>
                   <div className="right flex flex-col gap-3 w-1/2">
-                    <p className="uppercase text-xl font-medium">{item.productName}</p>
+                    <p className="uppercase text-xl font-medium">
+                      {item.productName}
+                    </p>
                     <DatePickerUi />
-                    <p className="text-xl relative top-5 font-normal">Total Cost {item.price}</p>
+                    <p className="text-xl relative top-5 font-normal">
+                      Total Cost {item.price}
+                    </p>
                     <button
                       type="button"
                       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

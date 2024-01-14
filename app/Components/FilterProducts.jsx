@@ -2,9 +2,8 @@
 import Wrapper from "./Wrapper";
 import { useEffect, useState } from "react";
 import { product } from "../Services/apiProducts";
-import { fetchCategoryFilter } from "./ProductsPage";
 
-const FilterProducts = () => {
+const FilterProducts = ({ fetchCategoryFilter }) => {
   const [ListBrands, setListBrands] = useState(null);
   useEffect(() => {
     fetchProducts();
@@ -13,21 +12,18 @@ const FilterProducts = () => {
   const fetchProducts = async () => {
     try {
       const response = await product();
-
       setListBrands(response);
     } catch (error) {
       console.log(error);
     }
   };
 
-  //Category filter logic
+  //Category filter list
   const brands = new Set();
   ListBrands?.products?.forEach((item) => {
     brands.add(item.categories);
   });
-  const brandsArray = [...brands];
-
- 
+  const brandsArray = [...brands]; //converting it into an array
 
   return (
     <>
@@ -43,14 +39,16 @@ const FilterProducts = () => {
               <option>Min to Max</option>
             </select>
 
-            <select className="select select-bordered w-full max-w-xs">
+            <select
+              className="select select-bordered w-full max-w-xs"
+              onChange={(e) => fetchCategoryFilter(e.target.value)}
+            >
               {brandsArray?.map((item, i) => {
-                return <option key={i + 2}>{item}</option>;
+                return <option key={i}>{item}</option>;
               })}
             </select>
           </div>
         </div>
-        <button onClick={() => fetchCategoryFilter("Watches")}>Click Me </button>
       </Wrapper>
     </>
   );
