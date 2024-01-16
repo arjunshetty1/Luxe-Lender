@@ -37,7 +37,6 @@ const Page = () => {
     <>
       <Wrapper>
         <Hero />
-
         <FilterProducts fetchCategoryFilter={fetchCategoryFilter} />
         <ProductsPage Prddata={Prddata} />
       </Wrapper>
