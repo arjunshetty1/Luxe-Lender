@@ -31,9 +31,11 @@ export const createOrder = async (send) => {
     send.productName +
     `", productPrice: ${send.productPrice}, productId: "` +
     send.productId +
-    `", product: {connect: {id: "` +
-    send.productId +
-    `"}}}
+    `",date: "` +
+    send.StartDate +
+    `",
+    enddate: "` +
+    send.enddate+`" }
       ) {
 
         id

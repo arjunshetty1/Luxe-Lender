@@ -1,23 +1,29 @@
 import { useState } from "react";
 import DatePickerUi from "./DatePickerUi";
 import { createOrder } from "../Services/apiProducts";
-
+import { format } from "date-fns";
 
 const Card = ({ item }) => {
+  const [startDate, setStartDate] = useState(new Date("2024/01/09"));
+  const [endDate, setEndDate] = useState(new Date("2024/01/09"));
+
+  const start = format(startDate, "yyyy-MM-dd");
+  const end = format(endDate, "yyyy-MM-dd");
+
   const [send, setsend] = useState({
     productName: item.productName,
     productPrice: item.price,
     productId: item.id,
+    StartDate: start,
+    enddate: end,
   });
 
-
+  console.log(end);
   const handleSubmit = async () => {
     console.log(send);
     const response = await createOrder(send);
     console.log(response);
   };
-
-  
 
   return (
     <>
@@ -58,9 +64,14 @@ const Card = ({ item }) => {
                     <p className="uppercase text-xl font-medium">
                       {item.productName}
                     </p>
-                    <DatePickerUi />
+                    <DatePickerUi
+                      startDate={startDate}
+                      setStartDate={setStartDate}
+                      endDate={endDate}
+                      setEndDate={setEndDate}
+                    />
                     <p className="text-xl relative top-5 font-normal" n>
-                      Total Cost {item.price}
+                       {item.price}/Per Day
                     </p>
                     <button
                       type="button"
