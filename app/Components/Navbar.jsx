@@ -1,4 +1,5 @@
 import { UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -37,12 +38,12 @@ const Navbar = () => {
               >
                 Categories
               </a>
-              <a
-                href="#"
+              <Link
+                href="/Cart"
                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
               >
-                Book a Stylist
-              </a>
+                Cart
+              </Link>
               <a
                 href="#"
                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"

@@ -1,7 +1,8 @@
+"use client"
 import { useState } from "react";
 import DatePickerUi from "./DatePickerUi";
-import { createOrder } from "../Services/apiProducts";
 import { format } from "date-fns";
+
 
 const Card = ({ item }) => {
   const [startDate, setStartDate] = useState(new Date("2024/01/09"));
@@ -18,12 +19,16 @@ const Card = ({ item }) => {
     enddate: end,
   });
 
-  console.log(end);
-  const handleSubmit = async () => {
-    console.log(send);
-    const response = await createOrder(send);
-    console.log(response);
+  const addToCart = () => {
+    // cartItems(send);
+    console.log("testing");
   };
+
+  // const handleSubmit = async () => {
+  //   console.log(send);
+  //   const response = await createOrder(send);
+  //   console.log(response);
+  // };
 
   return (
     <>
@@ -71,16 +76,16 @@ const Card = ({ item }) => {
                       setEndDate={setEndDate}
                     />
                     <p className="text-xl relative top-5 font-normal" n>
-                       {item.price}/Per Day
+                      {item.price}/Per Day
                     </p>
                     <button
                       type="button"
                       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
                        focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex
                         items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                      onClick={handleSubmit}
+                      onClick={addToCart}
                     >
-                      Proceed
+                      Add to Cart
                       <svg
                         class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
                         aria-hidden="true"
