@@ -7,9 +7,9 @@ const Cart = () => {
   const { cart,DeleteCartItems} = useContext(CartItemsContext);
   console.log("here is the cart", cart);
 
-  const deleteHandler = (i) => {
-    console.log("here is the i",i);
-    DeleteCartItems(i)
+  const deleteHandler = (id) => {
+    console.log("here is the i",id);
+    DeleteCartItems(id)
   };
   return (
     <Wrapper>
@@ -84,7 +84,7 @@ const Cart = () => {
                   <div className="flex w-full justify-between border-t p-4 sm:w-auto sm:border-none sm:pl-0 lg:p-6 lg:pl-0">
                     <div className="flex relative top-[0.7rem] flex-col items-start gap-2">
                       <button
-                        onClick={() => deleteHandler(i)}
+                        onClick={() => deleteHandler(item.productId)}
                         className="select-none text-sm font-semibold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
                       >
                         Delete
