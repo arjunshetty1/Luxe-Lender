@@ -4,13 +4,23 @@ import { CartItemsContext } from "../CartContext";
 import Wrapper from "./Wrapper";
 
 const Cart = () => {
-  const { cart,DeleteCartItems} = useContext(CartItemsContext);
+  const { cart, DeleteCartItems } = useContext(CartItemsContext);
   console.log("here is the cart", cart);
 
   const deleteHandler = (id) => {
-    console.log("here is the i",id);
-    DeleteCartItems(id)
+    console.log("here is the i", id);
+    DeleteCartItems(id);
   };
+
+  const SubTotalCost = cart.reduce((accumalator, currentValue) => {
+    return accumalator + currentValue.productPrice;
+  }, 0);
+  
+  let Total = 0;
+  if (SubTotalCost > 0) {
+    Total = SubTotalCost + 49;
+  }
+
   return (
     <Wrapper>
       <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -107,12 +117,12 @@ const Cart = () => {
               <div className="space-y-1">
                 <div className="flex justify-between gap-4 text-gray-500">
                   <span>Subtotal</span>
-                  <span>₹129.99</span>
+                  <span>{SubTotalCost}</span>
                 </div>
 
                 <div className="flex justify-between gap-4 text-gray-500">
                   <span>Shipping</span>
-                  <span>₹4.99</span>
+                  <span>₹49</span>
                 </div>
               </div>
 
@@ -121,7 +131,7 @@ const Cart = () => {
                   <span className="text-lg font-bold">Total</span>
 
                   <span className="flex flex-col items-end">
-                    <span className="text-lg font-bold">₹134.98 USD</span>
+                    <span className="text-lg font-bold">{Total}</span>
                     <span className="text-sm text-gray-500">including GST</span>
                   </span>
                 </div>

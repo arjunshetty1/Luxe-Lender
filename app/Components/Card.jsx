@@ -1,9 +1,9 @@
 "use client";
+import { Toaster } from "sonner";
 import { useContext, useState } from "react";
 import DatePickerUi from "./DatePickerUi";
 import { format } from "date-fns";
 import { CartItemsContext } from "../CartContext";
-
 
 const Card = ({ item }) => {
   const { Cartitems } = useContext(CartItemsContext);
@@ -79,12 +79,18 @@ const Card = ({ item }) => {
                     <p className="text-xl relative top-5 font-normal" n>
                       {item.price}/Per Day
                     </p>
+                    <Toaster
+                      className="absolute mt-[100vh]"
+                      position="bottom-left"
+                    />
                     <button
                       type="button"
                       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
                        focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex
                         items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                      onClick={addToCart}
+                      onClick={() => {
+                        addToCart();
+                      }}
                     >
                       Add to Cart
                       <svg
