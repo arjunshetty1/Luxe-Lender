@@ -7,8 +7,16 @@ const CartContext = ({ children }) => {
   const [cart, setcart] = useState([]);
 
   const Cartitems = (product) => {
-    setcart((prevCart) => [...prevCart, product]);
-    console.log(cart);
+    const isThere = cart.some((item) => {
+      return item.productId === product.productId;
+    });
+
+    if (!isThere) {
+      setcart((prevCart) => [...prevCart, product]);
+      console.log(cart);
+    } else {
+      alert("Product is already added to the cart");
+    }
   };
 
   const DeleteCartItems = (id) => {
