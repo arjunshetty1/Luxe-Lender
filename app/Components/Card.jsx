@@ -1,10 +1,12 @@
-"use client"
-import { useState } from "react";
+"use client";
+import { useContext, useState } from "react";
 import DatePickerUi from "./DatePickerUi";
 import { format } from "date-fns";
+import { CartItemsContext } from "../CartContext";
 
 
 const Card = ({ item }) => {
+  const { Cartitems } = useContext(CartItemsContext);
   const [startDate, setStartDate] = useState(new Date("2024/01/09"));
   const [endDate, setEndDate] = useState(new Date("2024/01/09"));
 
@@ -20,8 +22,7 @@ const Card = ({ item }) => {
   });
 
   const addToCart = () => {
-    // cartItems(send);
-    console.log("testing");
+    Cartitems(send);
   };
 
   // const handleSubmit = async () => {

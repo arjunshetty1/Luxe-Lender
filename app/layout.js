@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar";
 import { ClerkProvider } from "@clerk/nextjs";
+import CartContext from "./CartContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -13,10 +14,12 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
+        <CartContext>
         <body>
           <Navbar />
           <main>{children}</main>
         </body>
+        </CartContext>
       </html>
     </ClerkProvider>
   );
