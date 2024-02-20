@@ -42,7 +42,7 @@ const Cart = () => {
                     className="group relative block h-48 w-32 overflow-hidden bg-gray-100 sm:h-56 sm:w-40"
                   >
                     <img
-                      src="https://images.unsplash.com/photo-1531938716357-224c16b5ace3?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      src={item.Image}
                       loading="lazy"
                       alt="Photo by Thái An"
                       className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"

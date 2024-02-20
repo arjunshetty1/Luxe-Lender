@@ -18,6 +18,7 @@ const Page = () => {
   const fetchProducts = async () => {
     try {
       const response = await product();
+      console.log("res",response);
       setPrddata(response);
       SetCategoryFilter(response);
     } catch (error) {

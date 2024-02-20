@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import DatePickerUi from "./DatePickerUi";
 import { format } from "date-fns";
 import { CartItemsContext } from "../CartContext";
+import Image from "next/image";
 
 const Card = ({ item }) => {
   const { Cartitems } = useContext(CartItemsContext);
@@ -19,6 +20,7 @@ const Card = ({ item }) => {
     productId: item.id,
     StartDate: start,
     enddate: end,
+    Image:item.image[0].url
   });
 
   const addToCart = () => {
@@ -39,9 +41,13 @@ const Card = ({ item }) => {
        hover:outline-3 hover:outline-offset-2 hover:duration-200"
       >
         <figure>
-          <img
-            src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+          <Image
+            src={item.image[0].url}
+            width={500}
+            height={500}
+            quality={100}
             alt="Product Image"
+            className="w-[18rem] h-64"
           />
         </figure>
         <div className="card-body">
@@ -53,17 +59,19 @@ const Card = ({ item }) => {
               className="btn"
               onClick={() => document.getElementById(item.id).showModal()}
             >
-              Rent Now
+              View
             </button>
 
             <dialog key={item.id} id={item.id} className="modal text-white">
               <div className="modal-box md:min-w-[1200px] md:min-h-[460px] p-10">
                 <div className="flex gap-14 mt-12 ">
                   <div className="left w-1/2">
-                    <img
+                    <Image
+                      src={item.image[0].url}
+                      width={500}
+                      height={500}
                       className="rounded-lg "
-                      src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                      alt=""
+                      alt="ProductImage"
                     />
                   </div>
                   <div className="right flex flex-col gap-3 w-1/2">
