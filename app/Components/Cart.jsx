@@ -2,10 +2,40 @@
 import { useContext } from "react";
 import { CartItemsContext } from "../CartContext";
 import Wrapper from "./Wrapper";
+import { createOrder } from "../Services/apiProducts";
 
 const Cart = () => {
-  const { cart, DeleteCartItems } = useContext(CartItemsContext);
-  console.log("here is the cart", cart);
+  const { cart, DeleteCartItems, setcart } = useContext(CartItemsContext);
+
+  const handleSubmit = async () => {
+    try {
+      let allOrdersPlaced = true;
+
+      for (const item of cart) {
+        const response = await createOrder({
+          productName: item.productName,
+          productPrice: item.productPrice,
+          productId: item.productId,
+          StartDate: item.StartDate,
+          enddate: item.enddate,
+          Image: item.Image,
+        });
+        console.log("API response", response);
+
+        if (!response) {
+          allOrdersPlaced = false;
+        }
+      }
+
+      if (allOrdersPlaced) {
+        setcart([]);
+        alert("Order Placed Successfully");
+        
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const deleteHandler = (id) => {
     console.log("here is the i", id);
@@ -15,7 +45,7 @@ const Cart = () => {
   const SubTotalCost = cart.reduce((accumalator, currentValue) => {
     return accumalator + currentValue.productPrice;
   }, 0);
-  
+
   let Total = 0;
   if (SubTotalCost > 0) {
     Total = SubTotalCost + 49;
@@ -132,14 +162,20 @@ const Cart = () => {
 
                   <span className="flex flex-col items-end">
                     <span className="text-lg font-bold">{Total}</span>
-                    <span className="text-sm text-gray-500">including GST</span>
+                    {/* <span className="text-sm text-gray-500">including GST</span> */}
+                    <span className="text-sm mt-2">
+                      Pay on Delivery (Defualt)
+                    </span>
                   </span>
                 </div>
               </div>
             </div>
 
-            <button className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">
-              Check out
+            <button
+              onClick={handleSubmit}
+              className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"
+            >
+              Place Order
             </button>
           </div>
         </div>
