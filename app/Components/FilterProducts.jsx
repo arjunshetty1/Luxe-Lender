@@ -34,10 +34,10 @@ const FilterProducts = ({ fetchCategoryFilter }) => {
           </h1>
 
           <div className="flex-col gap-3 md:flex-row flex">
-            <select className="select select-bordered w-full max-w-xs">
+            {/* <select className="select select-bordered w-full max-w-xs">
               <option>Max to Min</option>
               <option>Min to Max</option>
-            </select>
+            </select> */}
 
             <select
               className="select select-bordered w-full max-w-xs"
