@@ -1,15 +1,17 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartItemsContext } from "../CartContext";
-import Wrapper from "./Wrapper";
 import { createOrder } from "../Services/apiProducts";
+import Wrapper from "./Wrapper";
+import Link from "next/link";
 
 const Cart = () => {
   const { cart, DeleteCartItems, setcart } = useContext(CartItemsContext);
+  const [orderPlaced, setorderPlaced] = useState(false);
 
   const handleSubmit = async () => {
     try {
-      let allOrdersPlaced = true;
+      let allOrdersPlaced = false;
 
       for (const item of cart) {
         const response = await createOrder({
@@ -25,12 +27,16 @@ const Cart = () => {
         if (!response) {
           allOrdersPlaced = false;
         }
+
+        if (response) {
+          allOrdersPlaced = true;
+        }
       }
 
       if (allOrdersPlaced) {
         setcart([]);
-        alert("Order Placed Successfully");
-        
+        // alert("Order Placed Successfully");
+        setorderPlaced(true);
       }
     } catch (error) {
       console.log(error);
@@ -59,6 +65,20 @@ const Cart = () => {
             <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
               Your Cart
             </h2>
+          </div>
+
+          <div>
+            {orderPlaced ? (
+              <div className="absolute top-0 right-0 w-[100%] bg-green-500 py-20 text-center text-white">
+                Your order has been placed successfully! Please go to{" "}
+                <Link href={"/"} className="underline">
+                  home
+                </Link>
+                .
+              </div>
+            ) : (
+              ""
+            )}
           </div>
           {cart.map((item, i) => {
             return (

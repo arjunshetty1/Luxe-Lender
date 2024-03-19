@@ -1,11 +1,11 @@
 "use client";
-
 import FilterProducts from "./Components/FilterProducts";
 import Hero from "./Components/Hero";
 import ProductsPage from "./Components/ProductsPage";
 import Wrapper from "./Components/Wrapper";
 import { useEffect, useState } from "react";
 import { product } from "./Services/apiProducts";
+import Cta from "./Components/cta";
 
 const Page = () => {
   console.log("Hello World");
@@ -41,6 +41,7 @@ const Page = () => {
         <Hero />
         <FilterProducts fetchCategoryFilter={fetchCategoryFilter} />
         <ProductsPage Prddata={Prddata} />
+        <Cta />
       </Wrapper>
     </>
   );

@@ -1,11 +1,18 @@
+"use client";
+
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { useContext } from "react";
+import { CartItemsContext } from "../CartContext";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 
 const Navbar = () => {
+  const { cart } = useContext(CartItemsContext);
+
   return (
     <>
       <div className="bg-white lg:pb-12">
-        <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+        <div className="mx-auto max-w-screen-2xl px-8 ">
           <header className="flex items-center justify-between py-4 md:py-8">
             <a
               href="/"
@@ -25,38 +32,22 @@ const Navbar = () => {
               Luxe Lender
             </a>
 
-            <nav className="hidden gap-12 lg:flex">
-              <a
-                href="#"
-                className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-              >
-                Home
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center gap-1 text-lg font-semibold text-gray-600 hover:text-indigo-500 active:text-indigo-700"
-              >
-                Categories
-              </a>
-              <Link
-                href="/Cart"
-                className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-              >
-                Cart
+            <div className="-ml-8   gap-2.5   flex justify-start">
+              <Link href="/Cart" className="group -m-2 flex items-center p-2">
+                <ShoppingBagIcon
+                  className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                  aria-hidden="true"
+                />
+                <span className="ml-2 text-lg font-medium text-red-700 group-hover:text-gray-800">
+                  {cart.length}
+                </span>
+                <span className="sr-only">items in cart, view bag</span>
               </Link>
-              <a
-                href="#"
-                className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-              >
-                About
-              </a>
-            </nav>
 
-            <div className="-ml-8 hidden flex-col gap-2.5 sm:flex-row sm:justify-center lg:flex lg:justify-start">
               <UserButton afterSignOutUrl="/" />
             </div>
 
-            <button
+            {/* <button
               type="button"
               className="inline-flex items-center gap-2 rounded-lg bg-gray-200 px-2.5 py-2 text-sm font-semibold text-gray-500 ring-indigo-300 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:hidden"
             >
@@ -73,7 +64,7 @@ const Navbar = () => {
                 />
               </svg>
               Menu
-            </button>
+            </button> */}
           </header>
         </div>
       </div>
