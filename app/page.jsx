@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { product } from "./Services/apiProducts";
 
 const Page = () => {
+  console.log("Hello World");
   const [Prddata, setPrddata] = useState(null);
   const [CategoryFilter, SetCategoryFilter] = useState(null);
 
@@ -18,7 +19,7 @@ const Page = () => {
   const fetchProducts = async () => {
     try {
       const response = await product();
-      console.log("res",response);
+      console.log("res", response);
       setPrddata(response);
       SetCategoryFilter(response);
     } catch (error) {

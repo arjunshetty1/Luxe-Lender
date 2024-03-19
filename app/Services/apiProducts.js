@@ -23,24 +23,21 @@ export const product = async () => {
 };
 
 export const createOrder = async (send) => {
-  const mutationQuery =
-    gql`
+  const mutationQuery = gql`
     mutation MyMutation {
       createOrderDetail(
-        data: {productName: "` +
-    send.productName +
-    `", productPrice: ${send.productPrice}, productId: "` +
-    send.productId +
-    `",date: "` +
-    send.StartDate +
-    `",
-    enddate: "` +
-    send.enddate +
-    `" }
-      ) {
-
+        data:
+        {
+    productName: "${send.productName}", 
+    productPrice: ${send.productPrice}, 
+    productId: "${send.productId}",
+    date:"${send.StartDate}",
+    enddate: "${send.enddate}" 
+      }
+      )
+      
+      {
         id
-        
         }
     }
   `;
