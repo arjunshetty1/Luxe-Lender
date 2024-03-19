@@ -5,7 +5,8 @@ import ProductsPage from "./Components/ProductsPage";
 import Wrapper from "./Components/Wrapper";
 import { useEffect, useState } from "react";
 import { product } from "./Services/apiProducts";
-import Cta from "./Components/cta";
+import Cta from "./Components/Cta";
+
 
 const Page = () => {
   console.log("Hello World");
