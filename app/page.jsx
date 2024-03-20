@@ -8,7 +8,6 @@ import { product } from "./Services/apiProducts";
 import Cta from "./Components/Cta";
 
 const Page = () => {
-  console.log("Hello World");
   const [Prddata, setPrddata] = useState(null);
   const [CategoryFilter, SetCategoryFilter] = useState(null);
   const [isloading, setisloading] = useState(true);
@@ -21,7 +20,7 @@ const Page = () => {
     try {
       const response = await product();
       setisloading(!true);
-      console.log("res", response);
+
       setPrddata(response);
       SetCategoryFilter(response);
     } catch (error) {

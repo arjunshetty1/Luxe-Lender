@@ -15,7 +15,7 @@ const CartContext = ({ children }) => {
     if (!isThere) {
       setcart((prevCart) => [...prevCart, product]);
       toast.success("Added to the cart");
-      console.log(cart);
+     
     } else {
       toast.warning("Product is already in the cart");
     }

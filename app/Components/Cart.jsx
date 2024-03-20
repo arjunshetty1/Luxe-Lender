@@ -42,7 +42,7 @@ const Cart = () => {
           Image: item.Image,
         });
 
-        console.log("API response", response);
+       
 
         if (!response) {
           allOrdersPlaced = false;
@@ -65,7 +65,8 @@ const Cart = () => {
   };
 
   const deleteHandler = (id) => {
-    console.log("here is the i", id);
+   
+    
     DeleteCartItems(id);
   };
 
@@ -73,7 +74,7 @@ const Cart = () => {
     <Wrapper>
       {isOrdering && (
         <div>
-          <div class="flex flex-row gap-2 ml-[35rem]">
+          <div class="flex flex-row gap-2 ml-[38rem]">
             <div class="w-8 h-8 rounded-full bg-indigo-500 ring-indigo-300 animate-bounce"></div>
             <div class="w-8 h-8 rounded-full bg-indigo-500 ring-indigo-300 animate-bounce [animation-delay:-.3s]"></div>
             <div class="w-8 h-8 rounded-full bg-indigo-500 ring-indigo-300 animate-bounce [animation-delay:-.5s]"></div>
