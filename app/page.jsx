@@ -7,11 +7,11 @@ import { useEffect, useState } from "react";
 import { product } from "./Services/apiProducts";
 import Cta from "./Components/Cta";
 
-
 const Page = () => {
   console.log("Hello World");
   const [Prddata, setPrddata] = useState(null);
   const [CategoryFilter, SetCategoryFilter] = useState(null);
+  const [isloading, setisloading] = useState(true);
 
   useEffect(() => {
     fetchProducts();
@@ -20,6 +20,7 @@ const Page = () => {
   const fetchProducts = async () => {
     try {
       const response = await product();
+      setisloading(!true);
       console.log("res", response);
       setPrddata(response);
       SetCategoryFilter(response);
@@ -41,7 +42,7 @@ const Page = () => {
       <Wrapper>
         <Hero />
         <FilterProducts fetchCategoryFilter={fetchCategoryFilter} />
-        <ProductsPage Prddata={Prddata} />
+        <ProductsPage Prddata={Prddata} isloading={isloading} />
         <Cta />
       </Wrapper>
     </>
