@@ -30,7 +30,7 @@ const Footer = () => {
                       type="email"
                       id="UserEmail"
                       placeholder="arjun@luxelender.com"
-                      className="w-full border-none focus:border-transparent focus:ring-transparent sm:text-sm py-4 px-2 rounded-md"
+                      className="w-full border-none sm:text-sm py-4 px-2 rounded-md"
                     />
 
                     <button className="mt-1 w-full  px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none bg-indigo-500 ring-indigo-300 rounded-md hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 sm:mt-0 sm:w-auto sm:shrink-0">

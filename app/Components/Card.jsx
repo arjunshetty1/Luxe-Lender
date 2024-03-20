@@ -6,7 +6,6 @@ import { format } from "date-fns";
 import { CartItemsContext } from "../CartContext";
 import Image from "next/image";
 
-
 const Card = ({ item }) => {
   const { Cartitems } = useContext(CartItemsContext);
   const [startDate, setStartDate] = useState(new Date("2024/01/09"));
