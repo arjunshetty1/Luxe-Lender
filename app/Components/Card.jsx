@@ -36,7 +36,7 @@ const Card = ({ item }) => {
   return (
     <>
       <div
-        className="card md:w-72 w-[15rem]   bg-base-100 shadow-xl transition ease-in-out delay-150 
+        className="card bg-[#fafafa] md:w-72 w-[15rem] shadow-xl transition ease-in-out delay-150 
        hover:-translate-y-1 hover:scale-110 hover:text-black  hover:bg-slate-50 hover:outline 
        hover:outline-3 hover:outline-offset-2 hover:duration-200"
       >
@@ -51,10 +51,10 @@ const Card = ({ item }) => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{item.productName}</h2>
+          <h2 className="card-title text-black">{item.productName}</h2>
 
           <div className="card-actions flex justify-between items-center">
-            <h2 className="font-medium">{item.price}/Per Day</h2>
+            <h2 className="font-medium text-black">{item.price}/Per Day</h2>
             <button
               className="btn"
               onClick={() => document.getElementById(item.id).showModal()}
@@ -63,7 +63,13 @@ const Card = ({ item }) => {
             </button>
             <div className="px-6 md:px-0">
               <dialog key={item.id} id={item.id} className="modal text-white">
-                <div className="modal-box min-w-[20rem]  md:min-w-[50rem]  lg:min-w-[70rem] p-15">
+                <div className="modal-box bg-[#fafafa]  max-w-[19rem] max-h-[27rem] md:max-h-full md:min-w-[50rem]  lg:min-w-[70rem] p-15">
+                  <button
+                    onClick={() => document.getElementById(item.id).close()}
+                    className="absolute top-4 right-6 text-lg md:text-2xl cursor-pointer text-black"
+                  >
+                    X
+                  </button>
                   <div className="md:flex md:flex-row flex-col gap-14 mt-12 ">
                     <div>
                       <Image
@@ -75,7 +81,7 @@ const Card = ({ item }) => {
                       />
                     </div>
                     <div className="right flex mt-20 md:mt-0 flex-col gap-3 w-1/2">
-                      <p className="uppercase md:text-lg text-sm font-medium">
+                      <p className=" text-black whitespace-nowrap uppercase md:text-lg text-sm font-medium">
                         {item.productName}
                       </p>
                       <DatePickerUi
@@ -85,7 +91,7 @@ const Card = ({ item }) => {
                         setEndDate={setEndDate}
                       />
                       <p
-                        className="md:text-lg text-sm relative top-5 font-normal"
+                        className="md:text-lg text-black text-sm relative top-5 font-normal"
                         n
                       >
                         {item.price}/Per Day
@@ -96,9 +102,9 @@ const Card = ({ item }) => {
                       />
                       <button
                         type="button"
-                        class="text-white mt-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
+                        class="text-white mt-[2rem] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
                        focus:ring-blue-300 font-medium rounded-lg  text-sm px-3 py-2.5  pl-2 text-center inline-flex
-                        items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        items-center dark:bg-blue-600 w-[12rem] md:w-full dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         onClick={() => {
                           addToCart();
                         }}
