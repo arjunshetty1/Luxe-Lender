@@ -42,8 +42,6 @@ const Cart = () => {
           Image: item.Image,
         });
 
-       
-
         if (!response) {
           allOrdersPlaced = false;
         }
@@ -65,8 +63,6 @@ const Cart = () => {
   };
 
   const deleteHandler = (id) => {
-   
-    
     DeleteCartItems(id);
   };
 

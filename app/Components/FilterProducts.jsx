@@ -28,8 +28,8 @@ const FilterProducts = ({ fetchCategoryFilter }) => {
   return (
     <>
       <Wrapper>
-        <div className="w-full flex justify-between bg-white mt-10 gap-4 md:gap-0">
-          <h1 className="text-black font-extralight text-lg">
+        <div className=" px-4 w-full flex justify-between bg-white mt-10 gap-4 md:gap-0">
+          <h1 className="text-black font-extralight text-md ">
             Discover Our Curated Collection Of The Finest Luxury Brands
           </h1>
 
@@ -40,7 +40,7 @@ const FilterProducts = ({ fetchCategoryFilter }) => {
             </select> */}
 
             <select
-              className="select select-bordered w-full max-w-xs"
+              className="select select-bordered w-26 sm:w-full max-w-xs"
               onChange={(e) => fetchCategoryFilter(e.target.value)}
             >
               {brandsArray?.map((item, i) => {

@@ -4,10 +4,10 @@ import "react-datepicker/dist/react-datepicker.css";
 const DatePickerUi = ({ startDate, setStartDate, endDate, setEndDate }) => {
   return (
     <>
-      <div className="md:flex mt-4 sm:flex-col gap-8 ">
-        <p className="text-black">Rent From</p>
+      <div className="md:flex mt-3 mb-1 sm:flex-col gap-8 ">
+        <p className="text-black sm:mb-[-23px] mb-1">Rent From</p>
         <DatePicker
-          className=" mt-4 md:p-4 p-2 text-sm md:text-lg rounded-md w-[7rem] md:w-[8rem] bg-black cursor-pointer text-white"
+          className="  mt-[0.3rem] sm:mt-0 md:p-2 px-2 !text-[12px] py-1 rounded-md w-[5rem] md:w-[4.8rem] bg-black cursor-pointer text-white"
           selected={startDate}
           onChange={(date) => {
             setStartDate(date);
@@ -16,9 +16,9 @@ const DatePickerUi = ({ startDate, setStartDate, endDate, setEndDate }) => {
           startDate={startDate}
           endDate={endDate}
         />
-        <p className="text-black">To</p>
+        <p className="sm:mt-0 mt-2 sm:mb-[-23px] text-black">To</p>
         <DatePicker
-          className="mt-2 md:p-4 p-2 text-sm md:text-lg rounded-md w-[7rem] md:w-[8rem] bg-black cursor-pointer text-white"
+          className=" mt-[0.3rem] sm:mt-0 md:p-2  px-2 !text-[12px] py-1 rounded-md w-[5rem] md:w-[4.8rem] bg-black cursor-pointer text-white"
           selected={endDate}
           onChange={(date) => setEndDate(date)}
           selectsEnd

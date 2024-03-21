@@ -5,6 +5,7 @@ import DatePickerUi from "./DatePickerUi";
 import { format } from "date-fns";
 import { CartItemsContext } from "../CartContext";
 import Image from "next/image";
+import Link from "next/link";
 
 const Card = ({ item }) => {
   const { Cartitems } = useContext(CartItemsContext);
@@ -27,12 +28,10 @@ const Card = ({ item }) => {
     Cartitems(send);
   };
 
- 
-
   return (
     <>
       <div
-        className="card bg-[#fafafa] md:w-72 w-[15rem] shadow-xl transition ease-in-out delay-150 
+        className="card sm:ml-0 ml-[0.7rem] bg-[#fafafa] mt-8 sm:mt-2 md:w-72 sm:w-[15rem] w-[10rem] sm:h-full h-[20rem] shadow-xl transition ease-in-out delay-150 
        hover:-translate-y-1 hover:scale-110 hover:text-black  hover:bg-slate-50 hover:outline 
        hover:outline-3 hover:outline-offset-2 hover:duration-200"
       >
@@ -43,21 +42,28 @@ const Card = ({ item }) => {
             height={500}
             quality={100}
             alt="Product Image"
-            className="w-[18rem] h-64"
+            className="w-[18rem] h-64 "
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title text-black">{item.productName}</h2>
+          <h2 className="card-title h-0 md:h-full sm:text-lg text-[15px] font-mono leading-4 text-black">
+            {item.productName}
+          </h2>
 
           <div className="card-actions flex justify-between items-center">
-            <h2 className="font-medium text-black">{item.price}/Per Day</h2>
-            <button
-              className="btn"
+            <h2 className="font-medium mt-6 sm:mt-4 sm:mb-3 mb-2 sm:text-md text-sm text-[#1f1e1e]">
+              ₹{item.price}/Per Day
+            </h2>
+
+            <Link
+              href=""
               onClick={() => document.getElementById(item.id).showModal()}
+              className="inline-block rounded-lg  hover:bg-indigo-700  bg-indigo-600 px-6 py-2 text-center text-[13px] font-semibold text-white outline-none ring-indigo-300 transition duration-100  focus-visible:ring active:bg-gray-200 "
             >
               View
-            </button>
-            <div className="px-6 md:px-0">
+            </Link>
+
+            <div className="px-6  md:px-0">
               <dialog key={item.id} id={item.id} className="modal text-white">
                 <div className="modal-box bg-[#fafafa]  max-w-[19rem] max-h-[27rem] md:max-h-full md:min-w-[50rem]  lg:min-w-[70rem] p-15">
                   <button
@@ -85,12 +91,12 @@ const Card = ({ item }) => {
                         src={item.image[0].url}
                         width={1000}
                         height={1000}
-                        className="rounded-lg left  w-50 md:w-80"
+                        className="rounded-lg left h-[20rem] w-50 md:w-80"
                         alt="ProductImage"
                       />
                     </div>
-                    <div className="right flex mt-20 md:mt-0 flex-col gap-3 w-1/2">
-                      <p className=" text-black whitespace-nowrap uppercase md:text-lg text-sm font-medium">
+                    <div className="right flex mt-10 md:mt-0 flex-col gap-1  w-1/2">
+                      <p className=" text-black whitespace-nowrap uppercase md:text-lg text-md font-mono font-medium">
                         {item.productName}
                       </p>
                       <DatePickerUi
@@ -105,11 +111,14 @@ const Card = ({ item }) => {
                       >
                         {item.price}/Per Day
                       </p>
-                      <Toaster className="absolute  md:bottom-0 " position="bottom-left" />
+                      <Toaster
+                        className="absolute  md:bottom-0 "
+                        position="bottom-left"
+                      />
                       <button
                         type="button"
                         class="text-white mt-[2rem] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
-                       focus:ring-blue-300 font-medium rounded-lg  text-sm px-3 py-2.5  pl-2 text-center inline-flex
+                       focus:ring-blue-300 font-medium rounded-lg  text-sm px-3 py-2.5  pl-4 text-center inline-flex
                         items-center dark:bg-blue-600 w-[12rem] md:w-full dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         onClick={() => {
                           addToCart();

@@ -7,14 +7,12 @@ const ProductsPage = ({ Prddata, isloading }) => {
     <Wrapper>
       {isloading ? (
         <div>
-          
-
           <section className="bg-white ">
             <div className="container px-6 py-10 mx-auto animate-pulse">
-              <h1 className="w-48 h-2 mx-auto bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+              {/* <h1 className="w-48 h-2 mx-auto bg-gray-200 rounded-lg dark:bg-gray-700"></h1> */}
 
-              <p className="w-64 h-2 mx-auto mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-              <p className="w-64 h-2 mx-auto mt-4 bg-gray-200 rounded-lg sm:w-80 dark:bg-gray-700"></p>
+              {/* <p className="w-64 h-2 mx-auto mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+              <p className="w-64 h-2 mx-auto mt-4 bg-gray-200 rounded-lg sm:w-80 dark:bg-gray-700"></p> */}
 
               <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
                 <div className="w-full ">
@@ -79,7 +77,7 @@ const ProductsPage = ({ Prddata, isloading }) => {
       ) : (
         ""
       )}
-      <div className="grid mt-16 md:grid-cols-2 lg:grid-cols-4  gap-8">
+      <div className="grid grid-cols-2 mt-4 md:grid-cols-2 lg:grid-cols-3  gap-0 sm:gap-8">
         {Prddata?.products?.map((item) => {
           return <Card item={item} key={item.id} />;
         })}
