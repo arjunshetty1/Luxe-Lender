@@ -31,7 +31,7 @@ const Card = ({ item }) => {
   return (
     <>
       <div
-        className="card sm:ml-0 ml-[0.7rem] bg-[#fafafa] mt-8 sm:mt-2 md:w-72 sm:w-[15rem] w-[10rem] sm:h-full h-[20rem] shadow-xl transition ease-in-out delay-150 
+        className="card sm:ml-0 ml-[0.7rem] bg-[#fafafa] mt-8 sm:mt-2 md:w-[22rem] sm:w-[15rem] w-[10rem] sm:h-full h-[20rem] shadow-xl transition ease-in-out delay-150 
        hover:-translate-y-1 hover:scale-110 hover:text-black  hover:bg-slate-50 hover:outline 
        hover:outline-3 hover:outline-offset-2 hover:duration-200"
       >
@@ -42,7 +42,7 @@ const Card = ({ item }) => {
             height={500}
             quality={100}
             alt="Product Image"
-            className="w-[18rem] h-64 "
+            className=" rounded-mdw-[18rem] h-64 "
           />
         </figure>
         <div className="card-body">
