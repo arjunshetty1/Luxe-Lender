@@ -30,30 +30,20 @@ const Card = ({ item }) => {
 
   return (
     <>
-      <div
-        className="card sm:ml-0 ml-[0.7rem] bg-[#fafafa] mt-8 sm:mt-2 md:w-[24rem] sm:w-[14.3rem] w-[10rem] sm:h-[27.5rem] h-[20rem] shadow-md transition ease-in-out delay-150 
-       hover:-translate-y-1 hover:scale-110 hover:text-black  hover:bg-slate-50 hover:outline 
-       hover:outline-3 hover:outline-offset-2 hover:duration-200"
-      >
-        <figure>
-          <Image
+      <div className="card ">
+        <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+          <img
             src={item.image[0].url}
-            width={500}
-            height={500}
-            quality={100}
-            alt="Product Image"
-            className=" rounded-mdw-[18rem] h-64 "
+            className="h-[16rem] w-full object-cover object-center hover:opacity-75"
           />
-        </figure>
+        </div>
         <div className="card-body">
-          <h2 className="card-title h-0 md:h-full sm:text-lg text-[15px] font-mono leading-4 text-black">
-            {item.productName}
-          </h2>
+          <h3 className="mt-4 text-sm text-gray-700">{item.productName}</h3>
 
           <div className="card-actions flex justify-between items-center">
-            <h2 className="font-medium mt-6 sm:mt-4 sm:mb-3 mb-2 sm:text-md text-sm text-[#1f1e1e]">
-              ₹{item.price}/Per Day
-            </h2>
+            <p className="mt-1 text-lg  font-medium text-gray-900">
+              {item.price}
+            </p>
 
             <Link
               href=""
